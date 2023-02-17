@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/style.css">
+    <title>Word Quiz API</title>
+</head>
+<body>
+    <!--main window--> 
+    <div class="main-cont">
+    
+        <div class="bar">
+            <!-- change to h1 -->
+    <button> Your score </button>
+    <p>timer: <span id="time">:75</span> </p>
+        </div>
+
+
+        <div class="quContainer">
+             <!--Quiz questions-->
+           <header class="score-info" id="start-container">
+            <h1>This is your quiz, take it!</h1>
+            <p>To start the quiz, lern Java </p>
+            <button id="start-quiz">Start Your Quiz!!</button>
+
+           </header>
+       <main>
+        <section class="questions hide" id="quiz-fild" >
+        <h2 id="QuizQ">Questions</h2>
+        <ul>
+            <li><button id="ansOne">Ans1</button></li>
+            <li><button id="ansTwo">Ans2</button></li>
+            <li><button id="ansThree">Ans3</button></li>
+            <li><button id="ansFour">Ans4</button></li>
+            </ul>
+            <h1 class=" hide" id="correct">Correct</h1>
+            <h1 class=" hide" id="incorrect">Incorrect</h1>
+            <div>
+                <h1><button id="next">next</button></h1>
+                 <h2><button>Your score :<span id="score">0</span></button></h2>
+
+            </div>
+          
+</section>
+
+<section class="finish-screen hide" id="finish">
+<h2>Quiz Finished</h2>
+<p id="score"> Your Score: 00</p>
+<div>
+<label for=""> Eneter initials</label>
+<input type="text">
+<button>Submit</button>
+</div>
+</section>
+
+<section class="hScore hide">
+    <ol>
+        <li>WP - 20</li>
+    </ol>
+<button>Go back</button>
+<button>Clear Scores</button>
+
+</section>
+
+       </main>
+
+        </div>
+
+    </div>
+    <script src="./assets/script.js"></script>
+    
+</body>
+</html>
+
+
+
+
+

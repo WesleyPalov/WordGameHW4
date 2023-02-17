@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   /* border: 2px double green; */
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-color: rgb(255, 240, 249);
+    
+}
+
+p {  
+    color: red;
+    font-size: 20px;
+    text-align: center;
+}
+
+button {
+    outline: none;
+    background-color: rgb(187, 187, 204);
+    font-size: 1.3em;
+    
+}
+
+h1, h2 {
+text-align: center;
+
+}
+.main-cont {
+padding: 12px;
+height: 95vh;
+display: flex;
+flex-direction: column;
+justify-content: start;
+}
+
+/* style top bar */
+.bar{
+    height: 30px;
+}
+/* to shift counter right*/
+.bar p {
+    float: right;
+}
+
+.quContainer {
+display: flex;
+flex-direction: column;
+justify-content: center;
+background-color: rgb(255, 204, 127);
+height: 90%;
+width: 50%;
+margin: 0 auto;
+}
+
+.score-info, main {
+ margin-bottom: 10%;
+margin-left: 10%;
+margin-right: 10%;
+background-color: beige;
+}
+
+
+.score-info button {
+ display: block;
+ margin: 0 auto;
+}
+
+header {
+
+}
+
+main{
+    display: block;
+}
+
+li {
+    list-style: none;
+}
+
+
+
+.hide {
+    display: none;
+
+}
