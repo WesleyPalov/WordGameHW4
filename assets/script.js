@@ -21,9 +21,9 @@ var questions = [
     answer: "terminal/bash"}
 ];
 // init global variable used to start timer
-var starTime = 35;
+var starTime = 295;
 // variables declaration
-display = document.getElementById("time");
+ var display = document.getElementById("time");
 
 var startContainer =  document.getElementById("start-container");
 var startQuizButton = document.getElementById("start-quiz");
@@ -34,13 +34,14 @@ var ansTwo = document.getElementById("ansTwo");
 var ansThree = document.getElementById("ansThree");
 var ansFour = document.getElementById("ansFour");
 var holdQuestion = 0;
-var score = document.getElementById("score");
+var fScore = document.getElementById("fScore");
 var finish = document.getElementById("finish");
 var correct = document.getElementById("correct");
 var incorrect = document.getElementById("incorrect");
 var next = document.getElementById("next");
 var points = document.getElementById("score");
 var count = 0;
+var timerInterval ;
 // start quiz
 
 
@@ -51,10 +52,9 @@ function startQuiz() {
     quizfild.classList.remove('hide');
    
 
+    setTime(); 
 
-    //TIMER 
-   setTime();
-  // console.log(questions[2].question );
+
   
 };
 
@@ -69,32 +69,40 @@ function agane() {
 }
 
 function  answerchecker (event) {
-  if (event.target.textContent === questions[0].answer) {
+  if (event.target.textContent === questions[holdQuestion].answer) {
          score++;  
-    console.log("true2515");
+    console.log(event.target.textContent);
          count++;
    points.textContent = count;
-   console.log(score);
+ 
         
     correct.classList.remove('hide');
-    next.addEventListener('click', displayQ,); 
-  console.log("256789")
+   // next.addEventListener('click', displayQ,); 
+
     }
      else {
      
       // if answer is wrong , subtracts 15 seconds from  the timer.
-    //  console.log("False");
-      starTime = starTime - 15;
+ 
+            if ( starTime - 15 <= 0)   {
+              starTime = 1 ;
+            }
+            else { 
+               starTime = starTime - 15;
+            }
+            console.log(event.target.textContent);
+    
      incorrect.classList.remove('hide'); 
-      next.addEventListener('click', displayQ );  
+       
       //incorrect.classList.add('');
      
      }
+     next.addEventListener('click', displayQ ); 
      // adds one to shift to the next question
      holdQuestion++;
 
 
-    displayQ;
+  
     
 };
 
@@ -105,16 +113,17 @@ function remove() {
 // timer function
 function setTime() {
     // Sets interval in variable
-    var timerInterval = setInterval(function() {
+     timerInterval = setInterval(function() {
       starTime--;
-      display.textContent = starTime ;
-  
-      if(starTime < 0) {
+      display.textContent = starTime;
+     
+      if(starTime <= 0) {
         // Stops execution of action at set interval
         clearInterval(timerInterval);
         // Calls function to create and append image
         quizfild.textContent = " You lost !!!";
-       agane()
+        endgame();
+   
       }
   
     }, 1000);
@@ -123,6 +132,12 @@ function setTime() {
   
 
 function displayQ () {
+  correct.classList.add('hide');
+  incorrect.classList.add('hide'); 
+ if (questions.length === holdQuestion) {
+    endgame ()
+ 
+ } else {
 
 
   quizQ.textContent = questions[holdQuestion].question;
@@ -130,13 +145,17 @@ function displayQ () {
   ansTwo.textContent = questions[holdQuestion].options[1];
   ansThree.textContent = questions[holdQuestion].options[2];
   ansFour.textContent = questions[holdQuestion].options[3];
-
-  console.log(holdQuestion);
+ }
   
-
+  
 };
 
-
+function endgame() {
+  quizfild.classList.add('hide');
+  finish.classList.remove('hide');
+  fScore.textContent = count;
+  console.log(count);
+}
 
 
 
